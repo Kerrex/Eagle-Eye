@@ -33,7 +33,7 @@ public class CustomerTableModel extends AbstractTableModel{
     @Override
     public void fireTableDataChanged() {
         super.fireTableDataChanged(); //To change body of generated methods, choose Tools | Templates.
-        rowCount++;
+        rowCount = cust.getProductList().size();
         System.out.println("Data changed");
     }
     public void setCustomer(Customer c){

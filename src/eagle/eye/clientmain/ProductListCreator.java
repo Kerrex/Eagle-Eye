@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -75,6 +76,7 @@ public class ProductListCreator implements Runnable {
     }
     public void find(JXDatePicker dp1, JXDatePicker dp2){
         thread = new Thread(this);
+        clear();
         path = calculatePaths(formatDate(dp1, dp2));
         getThread().start();
     }
@@ -148,5 +150,8 @@ public class ProductListCreator implements Runnable {
         ArrayList<String> paths = new ArrayList<>();
         dates.forEach((e)-> paths.add(e+"/"+getCust().getRegon()));
         return paths;
+    }
+    private void clear(){
+        getCust().getProductList().clear();
     }
 }
